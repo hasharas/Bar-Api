@@ -8,6 +8,8 @@
     "@testing-library/user-event": "^13.5.0",
     "ajv": "^6.12.6",
     "ajv-keywords": "^3.5.2",
+    "assert": "^2.1.0",
+    "axios": "^1.7.7",
     "cocktail": "file:",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

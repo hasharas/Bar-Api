@@ -29,15 +29,28 @@ const Populer = () => {
       const indexOfFirstItem = indexOfLastItem - itemsPerPage;
       const currentCocktails = cockTail.slice(indexOfFirstItem, indexOfLastItem);
 
+      const handleNextPage = () => {
+            if (currentPage < Math.ceil(cockTail.length / itemsPerPage)) {
+                  setCurrentPage(currentPage + 1);
+            }
+      };
+
+      const handlePreviousPage = () => {
+            if (currentPage > 1) {
+                  setCurrentPage(currentPage - 1);
+            }
+      };
 
 
       return (
-            <div className='w-full h-full px-[50px] py-6 px-auto bg-slate-100'>
-                  <p className='text-3xl mb-5 font-sans font-bold text-[#b32323]'>Popular Drinks</p>
-                  <div className='grid grid-cols-4 gap-1 mb-6 justify-items-center items-center'>
-                        {cockTail.map((cock) => (
+            <div className='w-full h-full  px-[70px] py-6 px-auto'
+                  style={{
+                        backgroundImage: "linear-gradient(to left, black ,white )",
+                  }}>
+                  <p className='text-3xl mb-5 font-sans font-bold text-[#009498]'>Popular Drinks</p>
+                  <div className='grid grid-cols-4 gap-1 mb-6 mt-10 justify-items-center items-center'>
+                        {currentCocktails.map((cock) => (
                               <PopularCart
-
                                     key={cock.idDrink}
                                     image={cock.strDrinkThumb}
                                     name={cock.strDrink}
@@ -46,10 +59,16 @@ const Populer = () => {
                   </div>
                   <div className='flex justify-between px-4'>
                         <div className='m-2 '>
-                              <button className='w-[150px] h-[50px] rounded text-white bg-[#b32323]'>Previous</button>
+                              <button className='w-[150px] h-[50px] rounded text-white bg-[#009498]'
+                                    onClick={handlePreviousPage}
+                                    disabled={currentPage === 1}
+                              >Previous</button>
                         </div>
                         <div className=''>
-                              <button className='w-[150px] h-[50px] rounded text-white bg-[#b32323]'>Next</button>
+                              <button className='w-[150px] h-[50px] rounded text-white bg-[#009498]'
+                                    onClick={handleNextPage}
+                                    disabled={currentPage >= Math.ceil(cockTail.length / itemsPerPage)}
+                              >Next</button>
                         </div>
                   </div>
             </div>
