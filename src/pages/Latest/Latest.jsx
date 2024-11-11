@@ -49,8 +49,8 @@ const Latest = () => {
                         backgroundImage: "linear-gradient(to left, black ,white )",
                   }}>
                   <hr className='mb-3' />
-                  <p className='text-3xl mb-5 font-sans font-bold text-[#009498]'>Latest Drinks</p>
-                  <div className="grid grid-cols-4 gap-1 gap-y-6 mb-6 mt-10 justify-items-center items-center">
+                  <p className='text-3xl mb-5 font-sans pl-2 font-bold text-[#009498]'>Latest Drinks</p>
+                  <div className="grid pl-2 grid-cols-4 gap-6 gap-y-6 mb-6 mt-10 justify-items-center items-center">
                         {currentCocktails.map((cock) => (
                               <LatestCart
                                     key={cock.idDrink}

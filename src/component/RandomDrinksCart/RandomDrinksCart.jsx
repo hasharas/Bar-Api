@@ -1,16 +1,22 @@
 import React from 'react';
-// import back1 from '../../assets/back1.png';
 
-const RandomDrinksCart = ({ name, image }) => {
+const RandomDrinksCart = ({ name, image, onClick }) => {
       return (
-
-            <div className='w-auto h-full  mb-3 bg-slate-50  cursor-pointer rounded-xl  transition-transform transform hover:scale-x-90'>
-
-                  <div> <img src={image} className='w-full  h-[300px] rounded-t-xl border-black' alt="" /></div>
-                  <div className='w-full pt-3 pl-4 pr-4'><span className='text-gray-700 font-sans font-semibold text-[1.1rem]'>{name}</span></div>
+            <div
+                  onClick={onClick}
+                  className='w-auto h-full mb-3 bg-slate-50 cursor-pointer rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300'
+            >
+                  <div>
+                        <img
+                              src={image}
+                              className='w-full h-[300px] rounded-t-xl object-cover border-black'
+                              alt={`${name}`}
+                        />
+                  </div>
+                  <div className='w-full px-3 pt-2'>
+                        <span className='text-gray-700 font-sans font-semibold text-lg'>{name}</span>
+                  </div>
             </div>
-
-
       );
 }
 

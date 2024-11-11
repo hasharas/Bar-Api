@@ -42,7 +42,7 @@ const RandomIngredients = () => {
                         backgroundImage: "linear-gradient(to left, black ,white )",
                   }}>
                   <hr className='mb-3' />
-                  <span className='p-4 text-3xl mb-5 font-sans font-bold text-[#009498]'>Random Ingredients</span>
+                  <span className='pl-2 py-4 pr-4 text-3xl mb-5 font-sans font-bold text-[#009498]'>Random Ingredients</span>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-6">
                         {cartItems.map((item) => (

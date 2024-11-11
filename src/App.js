@@ -5,7 +5,8 @@ import Navbar from './component/Header/Navbar';
 import Footer from './component/Footer/Footer';
 import BrowseCocktails from './pages/BrowsCocktails/BrowseCocktails';
 import AzPage from './pages/AzPage/AzPage';
-
+import ItemDetails from './pages/ItemDetails/ItemDetails';
+import RandomIngredientDetails from './pages/RandomIngredientDetails/RandomIngredientDetails';
 
 function App() {
   return (
@@ -13,8 +14,11 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/BrowseCocktails" element={<BrowseCocktails />} />
+        {<Route path="/Browse-Cocktails" element={<BrowseCocktails />} />}
         <Route path="/letter/:letter" element={<AzPage />} />
+        {/* Updated path to include both id and name */}
+        <Route path="/cocktail/:id" element={<ItemDetails />} />
+        <Route path="/ingredient/:id" element={<RandomIngredientDetails />} />
       </Routes>
       <Footer />
     </Router>
@@ -22,3 +26,6 @@ function App() {
 }
 
 export default App;
+
+
+

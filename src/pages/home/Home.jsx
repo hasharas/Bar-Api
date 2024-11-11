@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import back1 from '../../assets/back5.jpeg';
-import Populer from '../Populer/Populer';
+import Popular from '../Popular/Popular';
 import Ingredients from '../Ingredients/Ingredients';
 import axios from 'axios';
 import Latest from '../Latest/Latest';
 import RandomIngredients from '../RandomIngredients/RandomIngredients';
 import RandomDrinks from '../RandomDrinks/RandomDrinks';
+
 
 const Home = () => {
       const [searchQuery, setSearchQuery] = useState('');
@@ -22,7 +23,7 @@ const Home = () => {
                   setCocktails(data.drinks || []);
                   setSearchPerformed(true);
 
-                  navigate('/BrowseCocktails', { state: { cocktails: data.drinks || [] } });
+                  navigate('/Browse-Cocktails', { state: { cocktails: data.drinks || [] } });
             } catch (error) {
                   console.error("Error fetching cocktails:", error);
                   setCocktails([]);
@@ -70,7 +71,7 @@ const Home = () => {
 
                   {!searchPerformed && (
                         <>
-                              <Populer />
+                              <Popular />
                               <Ingredients />
                               <Latest />
                               <RandomIngredients />
@@ -79,7 +80,7 @@ const Home = () => {
                   )}
 
                   {/* A-Z Navigation at the bottom */}
-                  <div className="flex justify-center mt-10">
+                  <div className="flex justify-center mt-10 mb-3 ">
                         {'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map((letter) => (
                               <button
                                     key={letter}
