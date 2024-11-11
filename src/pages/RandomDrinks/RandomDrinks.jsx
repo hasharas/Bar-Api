@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 // import back1 from '../../assets/back1.png'
-import PopularCart from '../../component/PopulerCart/PopularCart';
 import axios from 'axios';
+import RandomDrinksCart from '../../component/RandomDrinksCart/RandomDrinksCart';
 
 
 
-const Populer = () => {
+const RandomDrinks = () => {
 
       const [cockTail, setCockTail] = useState([]);
       const [currentPage, setCurrentPage] = useState(1); //page track
@@ -16,7 +16,7 @@ const Populer = () => {
       useEffect(() => {
             const fetchCockTail = async () => {
                   try {
-                        const response = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail');
+                        const response = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Ordinary_Drink');
                         const data = response.data;
                         setCockTail(data.drinks);
                   } catch (error) {
@@ -48,10 +48,11 @@ const Populer = () => {
                   style={{
                         backgroundImage: "linear-gradient(to left, black ,white )",
                   }}>
-                  <p className='text-3xl mb-5 font-sans font-bold text-[#009498]'>Popular Drinks</p>
+                  <hr className='mb-3' />
+                  <p className='text-3xl mb-5 font-sans font-bold text-[#009498]'>Random Drinks</p>
                   <div className="grid grid-cols-4 gap-1 gap-y-6 mb-6 mt-10 justify-items-center items-center">
                         {currentCocktails.map((cock) => (
-                              <PopularCart
+                              <RandomDrinksCart
                                     key={cock.idDrink}
                                     image={cock.strDrinkThumb}
                                     name={cock.strDrink}
@@ -77,5 +78,4 @@ const Populer = () => {
       );
 }
 
-export default Populer;
-// 
+export default RandomDrinks;
