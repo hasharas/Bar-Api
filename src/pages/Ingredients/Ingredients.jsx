@@ -83,7 +83,7 @@ const Ingredients = () => {
                                     </div>
                               ))
                         ) : (
-                              <p>No ingredients available.</p>
+                              <p></p>
                         )}
                   </div>
 

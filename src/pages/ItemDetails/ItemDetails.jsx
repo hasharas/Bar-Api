@@ -32,11 +32,11 @@ const ItemDetails = () => {
       };
 
       return (
-            <div className="container max-h-[800px] mx-auto p-4 pb-0">
+            <div className="container max-h-auto h-auto  mx-auto p-4 pb-0">
                   <h2 className="text-3xl font-bold mb-4 text-[#009498]">{cocktail.strDrink}</h2>
                   <div className="flex mb-4">
                         {/* Main image */}
-                        <div className="flex-shrink-0 w-1/3 mr-6">
+                        <div className="flex-shrink-0 w-1/3 mr-6 shadow-2xl shadow-slate-500">
                               <img
                                     src={cocktail.strDrinkThumb}
                                     alt={cocktail.strDrink}
@@ -53,7 +53,7 @@ const ItemDetails = () => {
                               <h3 className="text-2xl font-semibold mb-2">Instructions</h3>
                               <p className="mb-4"><span className='font-medium text-base text-gray-600'>{cocktail.strInstructions}</span></p>
 
-                              <h3 className="text-2xl font-semibold mb-2">Ingredients</h3>
+                              <h3 className="text-2xl font-semibold mb-4">Ingredients</h3>
                               <ul className="grid grid-cols-2 gap-4">
                                     {Array.from({ length: 15 }).map((_, i) => {
                                           const ingredient = cocktail[`strIngredient${i + 1}`];

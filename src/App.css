@@ -47,3 +47,12 @@
   height: auto;
   margin: 5px;
 }
+
+.truncate-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* Show only 4 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+}

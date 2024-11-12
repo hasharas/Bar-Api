@@ -1,4 +1,3 @@
-// LetterCocktails.js
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -20,20 +19,33 @@ const AzPage = () => {
             fetchCocktails();
       }, [letter]);
 
+      const handleCocktailClick = (id) => {
+            navigate(`/cocktail/${id}`);
+      };
+
       return (
-            <div className="px-[50px] h-fit">
-                  <h2 className="text-2xl font-bold">Cocktails Starting with "{letter.toUpperCase()}"</h2>
-                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-4 ">
+            <div className="px-[60px] h-auto">
+                  <h2 className="py-4 mt-2 text-3xl font-bold mb-4 text-[#009498]">
+                        Cocktails Starting with "{letter.toUpperCase()}"
+                  </h2>
+                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-4">
                         {cocktails.map((drink) => (
-                              <div key={drink.idDrink} className="bg-white rounded-xl shadow-xl  ">
+                              <div
+                                    key={drink.idDrink}
+                                    className="bg-white rounded-xl shadow-xl cursor-pointer"
+                                    onClick={() => handleCocktailClick(drink.idDrink)} // onClick to handle navigation rout to sinngle item page 
+                              >
                                     <span className="font-semibold p-3">{drink.strDrink}</span>
-                                    <img src={drink.strDrinkThumb} alt={drink.strDrink} className="w-full h-auto mt-2 rounded-b-xl" />
+                                    <img
+                                          src={drink.strDrinkThumb}
+                                          alt={drink.strDrink}
+                                          className="w-full h-auto mt-2 rounded-b-xl"
+                                    />
                               </div>
                         ))}
                   </div>
 
-                  {/* A-Z Navigation at the bottom */}
-                  <div className="flex justify-center mt-10">
+                  <div className="flex justify-center mt-10 mb-3">
                         {'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map((char) => (
                               <button
                                     key={char}

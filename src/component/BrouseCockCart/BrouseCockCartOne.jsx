@@ -8,7 +8,7 @@ const truncateText = (text, wordLimit) => {
 
 const BrouseCockCartOne = ({ drink }) => {
       return (
-            <div className="bg-white mt-4 rounded-lg shadow cursor-pointer ">
+            <div className="bg-white mt-4 h-full rounded-lg shadow cursor-pointer ">
                   <img
                         src={drink.strDrinkThumb}
                         alt={drink.strDrink}

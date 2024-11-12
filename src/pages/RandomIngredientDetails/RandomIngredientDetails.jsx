@@ -13,6 +13,8 @@ const RandomIngredientDetails = () => {
                   try {
                         setLoading(true);
                         const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?iid=${ingredientId}`);
+
+                        console.log(response.data);  // Log the API response to inspect its structure
                         setIngredientDetails(response.data.ingredients[0]);
                   } catch (error) {
                         console.error('Error fetching ingredient details:', error);
@@ -40,7 +42,7 @@ const RandomIngredientDetails = () => {
 
                   <div className="flex mb-6">
                         {/* Ingredient Image */}
-                        <div className="flex-shrink-0 w-[600px] mr-6">
+                        <div className="flex-shrink-0 w-[600px] mr-6 shadow-xl rounded-lg shadow-slate-500">
                               <img
                                     src={ingredientImageUrl}
                                     alt={ingredientDetails.strIngredient}
@@ -50,16 +52,36 @@ const RandomIngredientDetails = () => {
 
                         {/* Ingredient details */}
                         <div className="flex-1 ml-3">
-                              <p className="text-lg mb-2 font-bold">ID: <span className="font-medium text-base text-gray-600">{ingredientDetails.idIngredient}</span></p>
-                              <p className="text-lg mb-2 font-bold">Description: <span className="font-medium text-base text-gray-600">{ingredientDetails.strDescription || 'No description available.'}</span></p>
-                              <p className="text-lg mb-2 font-bold">Type: <span className="font-medium text-base text-gray-600">{ingredientDetails.strType || 'N/A'}</span></p>
-                              <p className="text-lg mb-2 font-bold">Alcoholic: <span className="font-medium text-base text-gray-600">{ingredientDetails.strAlcohol || 'No'}</span></p>
-                              <p className="text-lg mb-2 font-bold">ABV: <span className="font-medium text-base text-gray-600">{ingredientDetails.strABV || 'N/A'}</span></p>
+                              <span className="text-lg mb-2 font-bold">Drinks :</span>
+                              <div className="mb-4">
+                                    {/* Add this block to check if drinks are available */}
+                                    {ingredientDetails.strDrink ? (
+                                          <div className="flex items-center mb-4">
+                                                {/* Display drink image */}
+                                                <img
+                                                      src={ingredientDetails.strDrinkThumb}
+                                                      alt={ingredientDetails.strDrink}
+                                                      className="w-[100px] h-[100px] rounded-lg mr-4"
+                                                />
+                                                <p className="text-lg font-medium">{ingredientDetails.strDrink}</p>
+                                          </div>
+                                    ) : (
+                                          <p>No drinks found for this ingredient.</p>
+                                    )}
+                              </div>
+                              <p className="text-lg mb-2 font-bold">Description :
+                                    <span className="font-medium text-base text-gray-600 pl-3 truncate-description">
+                                          {ingredientDetails.strDescription || 'No description available.'}
+                                    </span>
+                              </p>
+                              <p className="text-lg mb-2 font-bold">Type : <span className="font-medium text-base text-gray-600">{ingredientDetails.strType || 'N/A'}</span></p>
+                              <p className="text-lg mb-2 font-bold">Alcoholic : <span className="font-medium text-base text-gray-600">{ingredientDetails.strAlcohol || 'No'}</span></p>
+                              <p className="text-lg mb-2 font-bold">ABV : <span className="font-medium text-base text-gray-600">{ingredientDetails.strABV || 'N/A'}</span></p>
                         </div>
                   </div>
 
                   {/* A-Z Buttons */}
-                  <div className="flex justify-center mt-6 mb-4">
+                  <div className="flex justify-center mt-10 mb-3">
                         {'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map((letter) => (
                               <button
                                     key={letter}

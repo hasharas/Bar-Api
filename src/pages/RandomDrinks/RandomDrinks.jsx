@@ -62,7 +62,7 @@ const RandomDrinks = () => {
                   <div className='flex justify-between px-4'>
                         <div className='m-2'>
                               <button
-                                    className='w-[150px] h-[50px] rounded text-white bg-[#009498]'
+                                    className='w-[150px] h-[50px] rounded text-white bg-[#009498] disabled:opacity-50'
                                     onClick={handlePreviousPage}
                                     disabled={currentPage === 1}
                               >
@@ -71,7 +71,7 @@ const RandomDrinks = () => {
                         </div>
                         <div>
                               <button
-                                    className='w-[150px] h-[50px] rounded text-white bg-[#009498]'
+                                    className='w-[150px] h-[50px] rounded text-white bg-[#009498] disabled:opacity-50'
                                     onClick={handleNextPage}
                                     disabled={currentPage >= Math.ceil(cockTail.length / itemsPerPage)}
                               >
