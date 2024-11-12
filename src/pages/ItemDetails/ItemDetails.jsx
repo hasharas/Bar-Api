@@ -36,7 +36,7 @@ const ItemDetails = () => {
                   <h2 className="text-3xl font-bold mb-4 text-[#009498]">{cocktail.strDrink}</h2>
                   <div className="flex mb-4">
                         {/* Main image */}
-                        <div className="flex-shrink-0 w-1/3 mr-6 shadow-2xl shadow-slate-500">
+                        <div className="flex-shrink-0 w-1/3 h-full mr-6 rounded shadow-md shadow-slate-400">
                               <img
                                     src={cocktail.strDrinkThumb}
                                     alt={cocktail.strDrink}
@@ -50,6 +50,18 @@ const ItemDetails = () => {
 
                               <p className="text-lg mb-2 font-bold">Alcoholic :<span className='font-medium text-base text-gray-600'> {cocktail.strAlcoholic}</span></p>
                               <p className="text-lg mb-4 font-bold">Glass :<span className='font-medium text-base text-gray-600'> {cocktail.strGlass}</span></p>
+                              <p className="text-lg mb-4 font-bold cursor-pointer">
+                                    Tags:
+                                    {cocktail.strTags && cocktail.strTags.split(',').map((tag, index) => (
+                                          <span
+                                                key={index}
+                                                className="font-medium text-base text-white bg-[#009498] px-2 py-1 ml-1 rounded"
+                                          >
+                                                {tag.trim()}
+                                          </span>
+                                    ))}
+                              </p>
+
                               <h3 className="text-2xl font-semibold mb-2">Instructions</h3>
                               <p className="mb-4"><span className='font-medium text-base text-gray-600'>{cocktail.strInstructions}</span></p>
 
@@ -63,7 +75,7 @@ const ItemDetails = () => {
                                                       <img
                                                             src={getIngredientImage(ingredient)}
                                                             alt={ingredient}
-                                                            className="w-14 h-14 mr-3 rounded"
+                                                            className="w-20 h-16 mr-3 rounded"
                                                       />
                                                       <span className='hover:text-[#009498]'>{measure} {ingredient}</span>
                                                 </li>

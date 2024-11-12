@@ -3,6 +3,7 @@ import fb from '../../assets/facebook_icon.png'
 import dis from '../../assets/discord_icon.png'
 import twit from '../../assets/twitter_icon.png'
 import logo5 from '../../assets/logo5.png'
+import { Link } from 'react-router-dom';
 
 
 const Footer = () => {
@@ -16,7 +17,11 @@ const Footer = () => {
                               <span className='text-[15px] font-sans text-gray-400'>© 2024 TheCocktail.</span>
                               <span className='text-[15px] font-sans text-gray-400'>Proudly built in the UK</span>
                         </div>
-                        <div className='w-[450px] h-[100px]'><img src={logo5} className='w-full h-full' alt="" /></div>
+                        <div className='w-[450px] h-[100px]'>
+                              <Link to="/">
+                                    <img src={logo5} className='w-full h-full' alt="" />
+                              </Link>
+                        </div>
                         <div className=' flex flex-col w-full py-3 align-middle '>
                               {/* <span className='w-full'>Socials</span> */}
                               <div className="flex  text-xs justify-between pb-2 pl-[400px] w-full ">

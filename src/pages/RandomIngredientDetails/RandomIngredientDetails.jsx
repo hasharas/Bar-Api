@@ -42,11 +42,11 @@ const RandomIngredientDetails = () => {
 
                   <div className="flex mb-6">
                         {/* Ingredient Image */}
-                        <div className="flex-shrink-0 w-[600px] mr-6 shadow-xl rounded-lg shadow-slate-500">
+                        <div className="flex-shrink-0 w-[600px] mr-6 shadow-md rounded shadow-slate-400">
                               <img
                                     src={ingredientImageUrl}
                                     alt={ingredientDetails.strIngredient}
-                                    className="w-full rounded-lg shadow-md"
+                                    className="w-full rounded shadow-md"
                               />
                         </div>
 
