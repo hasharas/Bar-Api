@@ -32,8 +32,8 @@ const ItemDetails = () => {
       };
 
       return (
-            <div className="container h-auto mx-auto p-4 pb-0">
-                  <h2 className="text-3xl font-bold mb-4">{cocktail.strDrink}</h2>
+            <div className="container max-h-[800px] mx-auto p-4 pb-0">
+                  <h2 className="text-3xl font-bold mb-4 text-[#009498]">{cocktail.strDrink}</h2>
                   <div className="flex mb-4">
                         {/* Main image */}
                         <div className="flex-shrink-0 w-1/3 mr-6">

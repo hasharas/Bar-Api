@@ -18,7 +18,7 @@ function App() {
         <Route path="/letter/:letter" element={<AzPage />} />
         {/* Updated path to include both id and name */}
         <Route path="/cocktail/:id" element={<ItemDetails />} />
-        <Route path="/ingredient/:id" element={<RandomIngredientDetails />} />
+        <Route path="/ingredient/:ingredientId" element={<RandomIngredientDetails />} />
       </Routes>
       <Footer />
     </Router>
