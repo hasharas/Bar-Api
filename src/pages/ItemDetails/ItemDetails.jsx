@@ -30,7 +30,9 @@ const ItemDetails = () => {
       const getIngredientImage = (ingredientName) => {
             return `https://www.thecocktaildb.com/images/ingredients/${ingredientName}-Medium.png`;
       };
-
+      const handleTagClick = (tag) => {
+            navigate(`/Browse-Cocktails/tag/${tag}`);
+      };
       return (
             <div className="container max-h-auto h-auto  mx-auto p-4 pb-0">
                   <h2 className="text-3xl font-bold mb-4 text-[#009498]">{cocktail.strDrink}</h2>
@@ -55,7 +57,8 @@ const ItemDetails = () => {
                                     {cocktail.strTags && cocktail.strTags.split(',').map((tag, index) => (
                                           <span
                                                 key={index}
-                                                className="font-medium text-base text-white bg-[#009498] px-2 py-1 ml-1 rounded"
+                                                onClick={() => handleTagClick(tag.trim())} // Navigate on tag click
+                                                className="font-medium text-base text-white bg-[#009498] px-2 py-1 ml-1 rounded  hover:bg-[#36989b]"
                                           >
                                                 {tag.trim()}
                                           </span>

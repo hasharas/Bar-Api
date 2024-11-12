@@ -15,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         {<Route path="/Browse-Cocktails" element={<BrowseCocktails />} />}
+        <Route path="/Browse-Cocktails/tag/:strTags" element={<BrowseCocktails />} />
         <Route path="/letter/:letter" element={<AzPage />} />
         {/* Updated path to include both id and name */}
         <Route path="/cocktail/:id" element={<ItemDetails />} />

@@ -42,7 +42,7 @@ const RandomIngredientDetails = () => {
 
                   <div className="flex mb-6">
                         {/* Ingredient Image */}
-                        <div className="flex-shrink-0 w-[600px] mr-6 shadow-md rounded shadow-slate-400">
+                        <div className="flex-shrink-0 w-[500px] mr-6 shadow-md rounded shadow-slate-400">
                               <img
                                     src={ingredientImageUrl}
                                     alt={ingredientDetails.strIngredient}
@@ -61,12 +61,12 @@ const RandomIngredientDetails = () => {
                                                 <img
                                                       src={ingredientDetails.strDrinkThumb}
                                                       alt={ingredientDetails.strDrink}
-                                                      className="w-[100px] h-[100px] rounded-lg mr-4"
+                                                      className="w-[70px] h-[80px] rounded-lg mr-4"
                                                 />
                                                 <p className="text-lg font-medium">{ingredientDetails.strDrink}</p>
                                           </div>
                                     ) : (
-                                          <p>No drinks found for this ingredient.</p>
+                                          <p className="font-medium text-base pl-3 text-gray-600">No drinks found for this ingredient.</p>
                                     )}
                               </div>
                               <p className="text-lg mb-2 font-bold">Description :
