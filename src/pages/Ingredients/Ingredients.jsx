@@ -48,10 +48,10 @@ const Ingredients = () => {
             }
       };
 
-      // Navigate to the details page with the correct ID
+      // Navigate to the details page 
       const handleIngredientClick = async (ingredientName) => {
             try {
-                  // Fetch the ingredient details by name to get the ID
+                  // Fetch the ingredient detail
                   const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?i=${ingredientName}`);
                   const ingredient = response.data.ingredients[0];
                   if (ingredient && ingredient.idIngredient) {

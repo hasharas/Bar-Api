@@ -3,8 +3,8 @@ import { useLocation } from 'react-router-dom';
 import BrouseCockCart from '../../component/BrouseCockCart/BrouseCockCart';
 
 const BrowseCocktails = () => {
-      const location = useLocation(); // location object
-      const cocktails = location.state?.cocktails || []; // Get cocktails data passed via state,
+      const location = useLocation();
+      const cocktails = location.state?.cocktails || []; //  cocktails data passed  state,
 
       return (
             <div className='px-[70px]  mx-auto pt-5 pb-4 h-screen'

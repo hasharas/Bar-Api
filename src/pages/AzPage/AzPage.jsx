@@ -33,14 +33,14 @@ const AzPage = () => {
                               <div
                                     key={drink.idDrink}
                                     className="bg-white h-auto rounded-xl shadow-xl cursor-pointer"
-                                    onClick={() => handleCocktailClick(drink.idDrink)} // onClick to handle navigation route to single item page 
+                                    onClick={() => handleCocktailClick(drink.idDrink)} //navigation route to single item page 
                               >
                                     <img
                                           src={drink.strDrinkThumb}
                                           alt={drink.strDrink}
-                                          className="w-full h-auto mb-4 rounded-t-xl" // Increased margin-bottom to create space
+                                          className="w-full h-auto mb-4 rounded-t-xl"
                                     />
-                                    <span className="font-semibold w-full px-5 pb-4 block">{drink.strDrink}</span> {/* Padding added */}
+                                    <span className="font-semibold w-full px-5 pb-4 block">{drink.strDrink}</span>
                               </div>
                         ))}
                   </div>

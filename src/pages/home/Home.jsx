@@ -19,7 +19,7 @@ const Home = () => {
       useEffect(() => {
             const fetchTotals = async () => {
                   try {
-                        // Fetching total drinks by counting drinks starting with each letter A-Z
+                        // Fetching total drinks starting with each letter A-Z
                         let totalDrinkCount = 0;
                         for (let letter of 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') {
                               const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${letter}`);
@@ -99,7 +99,7 @@ const Home = () => {
                         </>
                   )}
 
-                  {/* A-Z Navigation at the bottom */}
+                  {/* A-Z Navigation */}
                   <div className="flex justify-center mt-10 mb-3 ">
                         {'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map((letter) => (
                               <button

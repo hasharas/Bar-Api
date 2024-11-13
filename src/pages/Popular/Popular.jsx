@@ -81,3 +81,6 @@ const Popular = () => {
 };
 
 export default Popular;
+
+// product eka athulata yanna add to cart icon ,
+// create cart icon ,add product , use state using basic ridux using  

@@ -26,7 +26,7 @@ const ItemDetails = () => {
             return <p>Loading...</p>;
       }
 
-      // Create ingredient image URL
+      // ingredient image URL
       const getIngredientImage = (ingredientName) => {
             return `https://www.thecocktaildb.com/images/ingredients/${ingredientName}-Medium.png`;
       };
@@ -37,7 +37,7 @@ const ItemDetails = () => {
             <div className="container max-h-auto h-auto  mx-auto p-4 pb-0">
                   <h2 className="text-3xl font-bold mb-4 text-[#009498]">{cocktail.strDrink}</h2>
                   <div className="flex mb-4">
-                        {/* Main image */}
+
                         <div className="flex-shrink-0 w-1/3 h-full mr-6 rounded shadow-md shadow-slate-400">
                               <img
                                     src={cocktail.strDrinkThumb}
@@ -46,7 +46,7 @@ const ItemDetails = () => {
                               />
                         </div>
 
-                        {/* Cocktail details and ingredients */}
+
                         <div className="flex-1 ml-4">
                               <p className="text-lg mb-2 font-bold">Category : <span className='font-medium text-base text-gray-600'> {cocktail.strCategory}</span></p>
 

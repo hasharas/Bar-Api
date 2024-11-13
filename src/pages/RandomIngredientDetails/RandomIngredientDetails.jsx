@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const RandomIngredientDetails = () => {
-      const { ingredientId } = useParams(); // Get ingredient ID from route
+      const { ingredientId } = useParams();
       const [ingredientDetails, setIngredientDetails] = useState(null);
       const [loading, setLoading] = useState(true);
       const navigate = useNavigate();
@@ -14,7 +14,7 @@ const RandomIngredientDetails = () => {
                         setLoading(true);
                         const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?iid=${ingredientId}`);
 
-                        console.log(response.data);  // Log the API response to inspect its structure
+                        console.log(response.data);
                         setIngredientDetails(response.data.ingredients[0]);
                   } catch (error) {
                         console.error('Error fetching ingredient details:', error);
@@ -32,7 +32,6 @@ const RandomIngredientDetails = () => {
       const ingredientImageUrl = `https://www.thecocktaildb.com/images/ingredients/${ingredientDetails.strIngredient}-Medium.png`;
 
       const handleLetterClick = (letter) => {
-            // Navigate to ingredient list page with the selected letter
             navigate(`/ingredients/${letter}`);
       };
 
@@ -41,7 +40,6 @@ const RandomIngredientDetails = () => {
                   <h2 className="text-3xl font-bold mb-4 text-[#009498]">{ingredientDetails.strIngredient}</h2>
 
                   <div className="flex mb-6">
-                        {/* Ingredient Image */}
                         <div className="flex-shrink-0 w-[500px] mr-6 shadow-md rounded shadow-slate-400">
                               <img
                                     src={ingredientImageUrl}
@@ -50,14 +48,12 @@ const RandomIngredientDetails = () => {
                               />
                         </div>
 
-                        {/* Ingredient details */}
+
                         <div className="flex-1 ml-3">
                               <span className="text-lg mb-2 font-bold">Drinks :</span>
                               <div className="mb-4">
-                                    {/* Add this block to check if drinks are available */}
                                     {ingredientDetails.strDrink ? (
                                           <div className="flex items-center mb-4">
-                                                {/* Display drink image */}
                                                 <img
                                                       src={ingredientDetails.strDrinkThumb}
                                                       alt={ingredientDetails.strDrink}
@@ -80,7 +76,7 @@ const RandomIngredientDetails = () => {
                         </div>
                   </div>
 
-                  {/* A-Z Buttons */}
+                  {/* A-Z  */}
                   <div className="flex justify-center mt-10 mb-3">
                         {'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map((letter) => (
                               <button
