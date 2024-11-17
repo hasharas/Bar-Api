@@ -9,7 +9,7 @@ const Cart = () => {
       };
 
       return (
-            <div className="container h-[400px] mx-auto mb-11 p-4">
+            <div className="container h-auto mx-auto mb-11 p-4">
                   <h2 className="text-3xl font-bold mb-4">Your Cart</h2>
                   {cartItems.length === 0 ? (
                         <p>No items in cart.</p>
@@ -25,19 +25,19 @@ const Cart = () => {
 
                                     </tr>
                               </thead>
-                              <tbody >
+                              <tbody className=''>
                                     {cartItems.map((item, index) => (
-                                          <tr key={index} className="hover:bg-gray-100">
-                                                <td className="border-r border-gray-300 px-4 py-2">
+                                          <tr key={index} className=" hover:bg-gray-100 bg-gray-50">
+                                                <td className=" border-b  border-gray-300 px-4 py-2">
                                                       <img
                                                             src={item.image}
                                                             alt={item.name}
                                                             className="w-16 h-16 rounded mx-auto"
                                                       />
                                                 </td>
-                                                <td className="border-r border-gray-300 px-4 py-2 text-center">{item.name}</td>
+                                                <td className=" border-b border-gray-300 px-4 py-2 text-center ">{item.name}</td>
 
-                                                <td className=" border-gray-300 px-4 py-2 text-center">
+                                                <td className=" border-gray-300 border-b px-4 py-2 text-center ">
                                                       <button
                                                             onClick={() => handleRemoveItem(item.id)}
                                                             className="text-white  justify-center items-center text-center bg-red-500 hover:bg-red-700 w-[100px] h-[30px] rounded"

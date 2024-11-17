@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../redux/cartAddActions';
 
 const RandomIngredientDetails = () => {
       const { ingredientId } = useParams();
       const [ingredientDetails, setIngredientDetails] = useState(null);
       const [loading, setLoading] = useState(true);
       const navigate = useNavigate();
+      const dispatch = useDispatch();
 
       useEffect(() => {
             const fetchIngredientDetails = async () => {
@@ -34,6 +37,15 @@ const RandomIngredientDetails = () => {
       const handleLetterClick = (letter) => {
             navigate(`/ingredients/${letter}`);
       };
+
+      const handleAddToCart = () => {
+            const cartItem = {
+                  name: ingredientDetails.strIngredient,
+                  image: ingredientImageUrl,
+            };
+            dispatch(addToCart(cartItem)); // Dispatch the addToCart action
+      };
+
 
       return (
             <div className="container w-full mx-[60px] p-6">
@@ -73,7 +85,14 @@ const RandomIngredientDetails = () => {
                               <p className="text-lg mb-2 font-bold">Type : <span className="font-medium text-base text-gray-600">{ingredientDetails.strType || 'N/A'}</span></p>
                               <p className="text-lg mb-2 font-bold">Alcoholic : <span className="font-medium text-base text-gray-600">{ingredientDetails.strAlcohol || 'No'}</span></p>
                               <p className="text-lg mb-2 font-bold">ABV : <span className="font-medium text-base text-gray-600">{ingredientDetails.strABV || 'N/A'}</span></p>
+                              <button
+                                    onClick={handleAddToCart}
+                                    className="mt-6 bg-[#009498] text-white px-4 py-2 rounded hover:bg-[#36989b]"
+                              >
+                                    Add to Cart
+                              </button>
                         </div>
+
                   </div>
 
                   {/* A-Z  */}
