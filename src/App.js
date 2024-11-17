@@ -7,22 +7,28 @@ import BrowseCocktails from './pages/BrowsCocktails/BrowseCocktails';
 import AzPage from './pages/AzPage/AzPage';
 import ItemDetails from './pages/ItemDetails/ItemDetails';
 import RandomIngredientDetails from './pages/RandomIngredientDetails/RandomIngredientDetails';
+import Cart from './pages/Cart/Cart';
 
 function App() {
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        {<Route path="/Browse-Cocktails" element={<BrowseCocktails />} />}
-        <Route path="/Browse-Cocktails/tag/:strTags" element={<BrowseCocktails />} />
-        <Route path="/letter/:letter" element={<AzPage />} />
-        {/* Updated path to include both id and name */}
-        <Route path="/cocktail/:id" element={<ItemDetails />} />
-        <Route path="/ingredient/:ingredientId" element={<RandomIngredientDetails />} />
-      </Routes>
-      <Footer />
-    </Router>
+    <div className="flex flex-col min-h-screen">
+      <Router>
+        <Navbar />
+        <div className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            {<Route path="/Browse-Cocktails" element={<BrowseCocktails />} />}
+            <Route path="/Browse-Cocktails/tag/:strTags" element={<BrowseCocktails />} />
+            <Route path="/letter/:letter" element={<AzPage />} />
+            {/* Updated path to include both id and name */}
+            <Route path="/cocktail/:id" element={<ItemDetails />} />
+            <Route path="/ingredient/:ingredientId" element={<RandomIngredientDetails />} />
+            <Route path="/cart" element={<Cart />} />
+          </Routes>
+        </div>
+        <Footer />
+      </Router>
+    </div>
   );
 }
 

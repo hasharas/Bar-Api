@@ -7,7 +7,7 @@ const BrowseCocktails = () => {
       const cocktails = location.state?.cocktails || []; //  cocktails data passed  state,
 
       return (
-            <div className='px-[70px]  mx-auto pt-5 pb-4 h-screen'
+            <div className='px-[70px]  mx-auto pt-5 pb-4 h-auto'
                   style={{
                         backgroundImage: "linear-gradient(to left, black ,white )",
                   }}>

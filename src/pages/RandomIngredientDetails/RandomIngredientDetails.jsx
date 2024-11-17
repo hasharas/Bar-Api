@@ -25,7 +25,7 @@ const RandomIngredientDetails = () => {
             fetchIngredientDetails();
       }, [ingredientId]);
 
-      if (loading) return <div>Loading...</div>;
+      if (loading) return <div ><p text-green-600 flex justify-center font-bold text-xl>Loading...</p></div>;
 
       if (!ingredientDetails) return <div>No ingredient details available.</div>;
 
