@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { addToCart } from '../../redux/cartAddActions'; // Ensure this is correctly imported
-import itemDetailsService from '../../services/ItemDetailsService'; // Import the new service
+import { addToCart } from '../../redux/cartAddActions';
+import itemDetailsService from '../../services/ItemDetailsService';
 
 const ItemDetails = () => {
       const { id } = useParams();
@@ -15,7 +15,7 @@ const ItemDetails = () => {
                   try {
                         const response = await itemDetailsService.fetchCocktailDetails(id); // Use the service to fetch details
                         if (response && response.drinks) {
-                              setCocktail(response.drinks[0]); // Only set cocktail if drinks data is available
+                              setCocktail(response.drinks[0]);
                         } else {
                               console.log('No drinks data available');
                         }
@@ -45,7 +45,7 @@ const ItemDetails = () => {
                   name: cocktail.strDrink,
                   image: cocktail.strDrinkThumb,
             };
-            dispatch(addToCart(cartItem)); // Dispatch the addToCart action
+            dispatch(addToCart(cartItem)); //  addToCart action
       };
 
       return (
@@ -119,7 +119,7 @@ const ItemDetails = () => {
                                           >
                                                 -
                                           </button>
-                                          <span className="mx-2">3</span>
+                                          <span className="mx-2">0</span>
                                           <button
                                                 className="w-8 bg-[#009498] ml-2 text-white px-2 py-2 rounded hover:bg-[#36989b] font-bold"
                                           >
