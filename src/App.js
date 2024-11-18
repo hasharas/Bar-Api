@@ -8,6 +8,10 @@ import AzPage from './pages/AzPage/AzPage';
 import ItemDetails from './pages/ItemDetails/ItemDetails';
 import RandomIngredientDetails from './pages/RandomIngredientDetails/RandomIngredientDetails';
 import Cart from './pages/Cart/Cart';
+import Missing from './pages/Missing/Missing';
+import About from './pages/About/About';
+import Faq from './pages/Faq/Faq';
+import Contact from './pages/Contact/Contact';
 
 function App() {
   return (
@@ -20,10 +24,14 @@ function App() {
             {<Route path="/Browse-Cocktails" element={<BrowseCocktails />} />}
             <Route path="/Browse-Cocktails/tag/:strTags" element={<BrowseCocktails />} />
             <Route path="/letter/:letter" element={<AzPage />} />
-            {/* Updated path to include both id and name */}
             <Route path="/cocktail/:id" element={<ItemDetails />} />
             <Route path="/ingredient/:ingredientId" element={<RandomIngredientDetails />} />
             <Route path="/cart" element={<Cart />} />
+
+            <Route path="/missing" element={<Missing />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/faq" element={<Faq />} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
         </div>
         <Footer />

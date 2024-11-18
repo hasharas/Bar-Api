@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 
 
 const Footer = () => {
+
+
       return (
             <div className=" bottom-0  px-4 py-2 w-full h-[110px] bg-[#b32323] bg-opacity-80  text-white z-2"
                   style={{
@@ -25,21 +27,22 @@ const Footer = () => {
                         <div className=' flex flex-col w-full py-3 align-middle '>
                               {/* <span className='w-full'>Socials</span> */}
                               <div className="flex  text-xs justify-between pb-2 pl-[400px] w-full ">
-                                    <span><a href="" className='text-gray-400'>Missing</a></span>
-                                    <span><a href="" className='text-gray-400'>About</a></span>
-                                    <span><a href="" className='text-gray-400'>Faz</a></span>
-                                    <span><a href="" className='text-gray-400'>Contact</a></span>
+                                    <Link to="/missing" className="text-gray-400">Missing</Link>
+                                    <Link to="/about" className="text-gray-400">About</Link>
+                                    <Link to="/faz" className="text-gray-400">Faz</Link>
+                                    <Link to="/contact" className="text-gray-400">Contact</Link>
+
                               </div>
 
                               <div className='flex align-middle justify-end w-full'>
 
-                                    <a href="" className='mx-4 rounded'>
+                                    <a href="https://www.facebook.com/TheDataDB/" className='mx-4 rounded'>
                                           <img src={fb} alt="" className='' />
                                     </a>
-                                    <a href="" className='mx-4'>
+                                    <a href="https://twitter.com/TheAudioDB" className='mx-4'>
                                           <img src={twit} alt="" />
                                     </a>
-                                    <a href="" className='mx-4'>
+                                    <a href="https://discord.com/invite/pFvgaXV" className='mx-4'>
                                           <img src={dis} alt="" />
 
                                     </a>
