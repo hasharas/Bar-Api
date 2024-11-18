@@ -1,7 +1,7 @@
-// src/services/commonService.js
 import { URL } from '../config/const';
 import HttpService from './httpService';
 
+//this use to a to z and populer pages  to
 class AtozService extends HttpService {
 
   async fetchCocktailsByLetter(letter) {
