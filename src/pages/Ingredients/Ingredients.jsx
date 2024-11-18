@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import IngredientsCart from '../../component/IngredientsCart/IngredientsCart';
+import ingredientService from '../../services/ingredientService';
 
 const Ingredients = () => {
       const [cartItems, setCartItems] = useState([]);
@@ -14,8 +14,8 @@ const Ingredients = () => {
             const fetchCartItems = async () => {
                   try {
                         setLoading(true);
-                        const response = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list');
-                        const items = response.data.drinks.map((ingredient) => ({
+                        const response = await ingredientService.fetchAllIngredients();
+                        const items = response.drinks.map((ingredient) => ({
                               id: ingredient.strIngredient1,
                               name: ingredient.strIngredient1,
                               imageUrl: `https://www.thecocktaildb.com/images/ingredients/${ingredient.strIngredient1}-Medium.png`,
@@ -51,9 +51,8 @@ const Ingredients = () => {
       // Navigate to the details page 
       const handleIngredientClick = async (ingredientName) => {
             try {
-                  // Fetch the ingredient detail
-                  const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?i=${ingredientName}`);
-                  const ingredient = response.data.ingredients[0];
+                  const response = await ingredientService.fetchIngredientDetails(ingredientName);
+                  const ingredient = response.ingredients[0];
                   if (ingredient && ingredient.idIngredient) {
                         navigate(`/ingredient/${ingredient.idIngredient}`);
                   } else {
