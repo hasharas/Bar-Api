@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../redux/cartAddActions';
+import randomIngredientDetailService from '../../services/RandomIngredientDetailService';
 
 const RandomIngredientDetails = () => {
       const { ingredientId } = useParams();
@@ -15,10 +15,9 @@ const RandomIngredientDetails = () => {
             const fetchIngredientDetails = async () => {
                   try {
                         setLoading(true);
-                        const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?iid=${ingredientId}`);
-
-                        console.log(response.data);
-                        setIngredientDetails(response.data.ingredients[0]);
+                        const response = await randomIngredientDetailService.fetchIngredientDetails(ingredientId); // Use the service
+                        console.log(response);
+                        setIngredientDetails(response.ingredients[0]);
                   } catch (error) {
                         console.error('Error fetching ingredient details:', error);
                   } finally {
@@ -28,7 +27,7 @@ const RandomIngredientDetails = () => {
             fetchIngredientDetails();
       }, [ingredientId]);
 
-      if (loading) return <div ><p text-green-600 flex justify-center font-bold text-xl>Loading...</p></div>;
+      if (loading) return <div ><p className='text-green-600 flex justify-center font-bold text-xl'>Loading...</p></div>;
 
       if (!ingredientDetails) return <div>No ingredient details available.</div>;
 
@@ -46,7 +45,6 @@ const RandomIngredientDetails = () => {
             dispatch(addToCart(cartItem)); // Dispatch the addToCart action
       };
 
-
       return (
             <div className="container w-full mx-[60px] p-6">
                   <h2 className="text-3xl font-bold mb-4 text-[#009498]">{ingredientDetails.strIngredient}</h2>
@@ -59,7 +57,6 @@ const RandomIngredientDetails = () => {
                                     className="w-full rounded shadow-md"
                               />
                         </div>
-
 
                         <div className="flex-1 ml-3">
                               <span className="text-lg mb-2 font-bold">Drinks :</span>

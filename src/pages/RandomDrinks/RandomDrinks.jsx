@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import RandomDrinksCart from '../../component/RandomDrinksCart/RandomDrinksCart';
 import { useNavigate } from 'react-router-dom';
+import randomDrinksService from '../../services/randomDrinksService';
 
 const RandomDrinks = () => {
-      const [cockTail, setCockTail] = useState([]);
+      const [cockTail, setCockTail] = useState([]); //state as an empty array
       const [currentPage, setCurrentPage] = useState(1);
       const itemsPerPage = 8;
       const navigate = useNavigate();
@@ -12,14 +12,19 @@ const RandomDrinks = () => {
       useEffect(() => {
             const fetchCockTail = async () => {
                   try {
-                        const response = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Ordinary_Drink');
-                        setCockTail(response.data.drinks);
+                        // Fetch data using the service
+                        const response = await randomDrinksService.fetchDrinksByCategory('Ordinary_Drink');
+                        if (response?.drinks) {
+                              setCockTail(response.drinks);
+                        } else {
+                              console.error('No drinks found in the response');
+                        }
                   } catch (error) {
                         console.log("Error fetching data:", error);
                   }
             };
             fetchCockTail();
-      }, []);
+      }, []);  // Empty dependency array, runs only once
 
       const indexOfLastItem = currentPage * itemsPerPage;
       const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -49,14 +54,18 @@ const RandomDrinks = () => {
                   <hr className='mb-3' />
                   <p className='text-3xl mb-5 pl-1 font-sans font-bold text-[#009498]'>Random Drinks</p>
                   <div className="grid grid-cols-4 gap-1 gap-y-6 mb-6 mt-10 justify-items-center items-center">
-                        {currentCocktails.map((cock) => (
-                              <RandomDrinksCart
-                                    onClick={() => handleCocktailClick(cock.idDrink)}
-                                    key={cock.idDrink}
-                                    image={cock.strDrinkThumb}
-                                    name={cock.strDrink}
-                              />
-                        ))}
+                        {currentCocktails.length > 0 ? (
+                              currentCocktails.map((cock) => (
+                                    <RandomDrinksCart
+                                          onClick={() => handleCocktailClick(cock.idDrink)}
+                                          key={cock.idDrink}
+                                          image={cock.strDrinkThumb}
+                                          name={cock.strDrink}
+                                    />
+                              ))
+                        ) : (
+                              <div>No cocktails available</div>
+                        )}
                   </div>
 
                   <div className='flex justify-between px-4'>

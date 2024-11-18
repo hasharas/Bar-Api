@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 import IngredientsCart from '../../component/IngredientsCart/IngredientsCart';
+import randomIngredientsService from '../../services/RandomIngredientsService';
 
 const RandomIngredients = () => {
       const [cartItems, setCartItems] = useState([]);
@@ -9,16 +9,13 @@ const RandomIngredients = () => {
       useEffect(() => {
             const fetchCartItems = async () => {
                   try {
-                        // ingredients to fetch
+                        // Ingredients to fetch
                         const ingredients = ['Grenadine', 'Vanilla', 'Tang', 'Cocktail Onion'];
-                        const ingredientPromises = ingredients.map((ingredient) =>
-                              axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?i=${ingredient}`)
-                        );
 
-                        const responses = await Promise.all(ingredientPromises);
+                        const responses = await randomIngredientsService.fetchIngredients(ingredients);
 
                         const items = responses.map((response, index) => {
-                              const ingredient = response.data.ingredients[0];
+                              const ingredient = response.ingredients[0];
                               return {
                                     id: ingredient.idIngredient,
                                     name: ingredient.strIngredient,

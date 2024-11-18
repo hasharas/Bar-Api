@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../redux/cartAddActions'; // Ensure this is correctly imported
+import itemDetailsService from '../../services/ItemDetailsService'; // Import the new service
 
 const ItemDetails = () => {
       const { id } = useParams();
@@ -13,10 +13,12 @@ const ItemDetails = () => {
       useEffect(() => {
             const fetchCocktailDetails = async () => {
                   try {
-                        const response = await axios.get(
-                              `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`
-                        );
-                        setCocktail(response.data.drinks[0]);
+                        const response = await itemDetailsService.fetchCocktailDetails(id); // Use the service to fetch details
+                        if (response && response.drinks) {
+                              setCocktail(response.drinks[0]); // Only set cocktail if drinks data is available
+                        } else {
+                              console.log('No drinks data available');
+                        }
                   } catch (error) {
                         console.log('Error fetching cocktail details:', error);
                   }
@@ -113,15 +115,13 @@ const ItemDetails = () => {
                                     </button>
                                     <div className='mt-6'>
                                           <button
-                                                className="  w-8 bg-[#009498] mr-2 text-white px-2 py-2 rounded hover:bg-[#36989b] font-bold"
-                                          //     onClick={() => handleDecrement()}
+                                                className="w-8 bg-[#009498] mr-2 text-white px-2 py-2 rounded hover:bg-[#36989b] font-bold"
                                           >
                                                 -
                                           </button>
                                           <span className="mx-2">3</span>
                                           <button
-                                                className="  w-8 bg-[#009498] ml-2 text-white px-2 py-2 rounded hover:bg-[#36989b]  font-bold"
-                                          //     onClick={() => handleIncrement()}
+                                                className="w-8 bg-[#009498] ml-2 text-white px-2 py-2 rounded hover:bg-[#36989b] font-bold"
                                           >
                                                 +
                                           </button>
