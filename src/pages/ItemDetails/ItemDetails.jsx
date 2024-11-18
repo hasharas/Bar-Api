@@ -104,13 +104,29 @@ const ItemDetails = () => {
                                           ) : null;
                                     })}
                               </ul>
-
-                              <button
-                                    onClick={handleAddToCart}
-                                    className="mt-6 bg-[#009498] text-white px-4 py-2 rounded hover:bg-[#36989b]"
-                              >
-                                    Add to Cart
-                              </button>
+                              <div className='flex justify-around mr-[150px]'>
+                                    <button
+                                          onClick={handleAddToCart}
+                                          className="mt-6 bg-[#009498] text-white px-4 py-2 rounded hover:bg-[#36989b]"
+                                    >
+                                          Add to Cart
+                                    </button>
+                                    <div className='mt-6'>
+                                          <button
+                                                className="  w-8 bg-[#009498] mr-2 text-white px-2 py-2 rounded hover:bg-[#36989b] font-bold"
+                                          //     onClick={() => handleDecrement()}
+                                          >
+                                                -
+                                          </button>
+                                          <span className="mx-2">3</span>
+                                          <button
+                                                className="  w-8 bg-[#009498] ml-2 text-white px-2 py-2 rounded hover:bg-[#36989b]  font-bold"
+                                          //     onClick={() => handleIncrement()}
+                                          >
+                                                +
+                                          </button>
+                                    </div>
+                              </div>
                         </div>
                   </div>
                   <div className="flex justify-center mt-10 mb-3">
