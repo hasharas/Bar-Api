@@ -29,7 +29,7 @@ const Footer = () => {
                               <div className="flex  text-xs justify-between pb-2 pl-[400px] w-full ">
                                     <Link to="/missing" className="text-gray-400">Missing</Link>
                                     <Link to="/about" className="text-gray-400">About</Link>
-                                    <Link to="/faz" className="text-gray-400">Faz</Link>
+                                    <Link to="/faq" className="text-gray-400">Faq</Link>
                                     <Link to="/contact" className="text-gray-400">Contact</Link>
 
                               </div>
