@@ -55,7 +55,7 @@ const Home = () => {
 
       return (
             <div>
-                  <div className="relative w-full h-auto bg-cover bg-center px-[50px] px-auto" style={{ backgroundImage: `url(${back1})` }}>
+                  <div className="relative w-full h-screen bg-cover bg-center px-[50px] px-auto" style={{ backgroundImage: `url(${back1})` }}>
                         <div className="absolute inset-0 bg-black opacity-40"></div>
 
                         <div className="relative w-full text-white flex flex-row justify-between pt-[100px] h-full">
