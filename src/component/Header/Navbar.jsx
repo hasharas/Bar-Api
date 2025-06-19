@@ -4,7 +4,7 @@ import axios from 'axios';
 import logo1 from '../../assets/logo5.png';
 import search from '../../assets/search.png';
 import Cart from '../../assets/cart3.png';
-import { useSelector } from 'react-redux'; // Import useSelector to get cart items from Redux
+import { useSelector } from 'react-redux';
 
 const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -32,7 +32,7 @@ const Navbar = () => {
 
   return (
     <div className="w-full px-4 pt-2 pb-4 bg-gradient-to-tr bg-[#1e1f1ff1] bg-opacity-90 text-white" style={{
-      backgroundImage: "linear-gradient(to right, black ,#009498 )",
+      backgroundImage: "linear-gradient(to right, black ,#0047498 )",
     }}>
       <nav className="flex w-full h-[110px] justify-between items-center">
         <div className='m-0 p-0'>
